@@ -152,3 +152,109 @@ let data = {
   ],
   weight: 69,
 };
+
+// Challenge 1
+console.log("Challenge 1");
+let {height, weight} = data;
+height = height.toString();
+weight = weight.toString();
+console.log(`Height/weight of the Pokemon is ${height}m / ${weight}kg`);
+
+// Challenge 2
+console.log("--------------------------/--------------------------\nChallenge 2");
+height = parseInt(height);
+weight = parseInt(weight);
+console.log(`Pokemon's BMI is ${weight/(height * height)}bmi`);
+
+// Challenge 3
+console.log("--------------------------/--------------------------\nChallenge 3");
+let {name} = data;
+console.log(`Pokemon's name is ${name.toUpperCase()}, it has ${name.length} letters`);
+
+// Challenge 4
+console.log("--------------------------/--------------------------\nChallenge 4");
+console.log(`Pokemon's name contains "bulba": ${name.includes("bulba")}`);
+
+// Challenge 5
+console.log("--------------------------/--------------------------\nChallenge 5");
+let firstTwoLetters = name.substring(0, 2);
+let lastTwoLetters = name.substring(name.length - 2);
+const newName = firstTwoLetters.concat(lastTwoLetters);
+console.log(`New name is ${newName}`);
+
+// Challenge 6
+console.log("--------------------------/--------------------------\nChallenge 6");
+const nameArray = [newName];
+console.log(nameArray);
+
+// Challenge 7
+console.log("--------------------------/--------------------------\nChallenge 7");
+const {types} = data;
+for (let type of types) {
+  console.log(`Type name is ${type.type.name}`);
+}
+
+// Challenge 8
+console.log("--------------------------/--------------------------\nChallenge 8");
+const {abilities} = data;
+console.log(Array.isArray(abilities));
+
+// Challenge 9
+console.log("--------------------------/--------------------------\nChallenge 9");
+console.log(abilities[abilities.length - 1].ability.name);
+
+// Challenge 10
+console.log("--------------------------/--------------------------\nChallenge 10");
+const lastAbility = data.abilities.pop();
+data.abilities.push(lastAbility);
+
+// Challenge 11
+console.log("--------------------------/--------------------------\nChallenge 11");
+let statsArray = [];
+for (const stat of data.stats) {
+  console.log("Base stat is",stat.base_stat);
+  statsArray.push(stat.base_stat);
+}
+
+// Challenge 12
+console.log("--------------------------/--------------------------\nChallenge 12");
+console.log(statsArray);
+const filteredStats = statsArray.filter(stats => stats > 47);
+console.log(filteredStats);
+
+// Challenge 13
+console.log("--------------------------/--------------------------\nChallenge 13");
+const reversedArrayStats = statsArray.reverse();
+console.log(reversedArrayStats);
+
+// Challenge 14
+console.log("--------------------------/--------------------------\nChallenge 14");
+let statsArrayFirstTwo= statsArray.slice(0, 2);
+console.log(statsArrayFirstTwo);
+
+// Challenge 15
+console.log("--------------------------/--------------------------\nChallenge 15");
+statsArray[0] = "Altay";
+console.log(statsArray);
+
+// Challenge 16
+console.log("--------------------------/--------------------------\nChallenge 16");
+for (const property in data) {
+  console.log(`Key: ${property}, Value: ${data[property]}`);
+}
+
+// Challenge 17
+console.log("--------------------------/--------------------------\nChallenge 17");
+const avatar = document.querySelector('#pokemon-avatar');
+const pok_name = document.querySelector('#pokemon-name');
+const info = document.querySelector('#info');
+const name2 = data.name;
+const height2 = height;
+const weight2 = weight;
+const url = data.sprites.front_default;
+avatar.src = url;
+pok_name.innerHTML = name;
+info.innerHTML = `
+  <span> Height ${height}</span> -
+  <span> Weight ${weight}</span>
+`;
